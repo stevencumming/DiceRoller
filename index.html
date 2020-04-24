@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Dice Roller</title>
+		<link rel="stylesheet" href="style.css">
+		<style type="text/css">
+			td {
+				width: 100px;
+				height: 100px;
+			}
+			button {
+				width: 200px;
+				height: 40px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<table>
+			<tr><td>Dice 1: </td><td id="dice1"></td></tr>
+			<tr><td>Dice 2: </td><td id="dice2"></td></tr>
+			<tr><td>Dice 3: </td><td id="dice3"></td></tr>
+			<tr><td>Dice 4: </td><td id="dice4"></td></tr>
+		</table>
+
+		<button id="spin" onclick="Spin()">SPIN</button>
+
+	</body>
+	<script type="text/javascript">
+	
+	function Spin() {
+		UpdateImage("dice1", getRandomNumber(1, 6));
+		UpdateImage("dice2", getRandomNumber(1, 6));
+		UpdateImage("dice3", getRandomNumber(1, 6));
+		UpdateImage("dice4", getRandomNumber(1, 6));
+	}
+
+
+	function UpdateImage(dice_id, number) {
+		var myBackgroundImage = "";
+		switch(number) {
+			case 1:
+				myBackgroundImage = "url('assets/d1.svg')";
+				break;
+			case 2:
+				myBackgroundImage = "url('assets/d2.svg')";
+				break;
+			case 3:
+				myBackgroundImage = "url('assets/d3.svg')";
+				break;
+			case 4:
+				myBackgroundImage = "url('assets/d4.svg')";
+				break;
+			case 5:
+				myBackgroundImage = "url('assets/d5.svg')";
+				break;
+			case 6:
+				myBackgroundImage = "url('assets/d6.svg')";
+				break;
+		}
+
+		document.getElementById(dice_id).style.backgroundImage = myBackgroundImage;
+	}
+
+	function getRandomNumber(min, max) {
+		// Gives a random number between two numbers
+		return Math.floor(Math.random() * ((max + 1) - min) + min);
+	}
+
+	</script>
+</html>
