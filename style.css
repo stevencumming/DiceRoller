@@ -1,0 +1,37 @@
+/* 
+Stylesheet
+
+Don't worry about keeping this too tidy, but use heirarchy for ordering and keep your
+styling grouped together with a few empty lines between other stuff
+*/
+
+body {
+	background-color: #282923;
+}
+
+main {
+	width: 1280px;
+	height: 800px;
+	background-color: #6D6E6A;
+	margin: 50px auto;
+}
+.hidden
+{
+    display: none;
+}
+
+
+
+/* Use comments please */
+/**/
+td {
+	width: 100px;
+	height: 100px;
+}
+button {
+	width: 200px;
+	height: 40px;
+}
+
+
+
