@@ -91,16 +91,21 @@ function GameScreen() {
 	main.innerHTML = gameScreen.innerHTML;
 
 	// Do Stuff...
+	//initialise die style propertiers
+	IniDie();
 
 	// EXAMPLE CODE:
 	// Grab buttons as objects
 	var btn_spin = document.getElementById("btn_spin");
 	var btn_menu = document.getElementById("btn_menu");
+	var btn_add = document.getElementById("btn_add");
+	var btn_hide = document.getElementById("btn_hide");
 
 	// Initialise Click Handlers and set what happens when you click them:
 	btn_spin.addEventListener("click", Spin);
 	btn_menu.addEventListener("click", MenuScreen);
-
+	btn_hide.addEventListener("click", RemoveDie);
+	btn_add.addEventListener("click", AddDie);
 }
 
 
@@ -153,3 +158,55 @@ function UpdateImage(dice_id, number) {
 	document.getElementById(dice_id).style.backgroundImage = myBackgroundImage;
 }
 
+function IniDie() {
+	document.getElementById("dice1").style.visibility = "visible";
+	document.getElementById("dice2").style.visibility = "visible";
+	document.getElementById("dice3").style.visibility = "visible";
+	document.getElementById("dice4").style.visibility = "visible";
+}
+
+function GetNumberOfDie() {
+	var numDie = 1; //dice 1 will never be invisible
+	var i;
+	
+	for(i = 2; i < 5; i++) {
+		var dieID = "dice" + i; //will go from dice2 to dice4
+		
+		if (document.getElementById(dieID).style.visibility == "visible") {
+			numDie += 1;
+		}
+		else { //all next dice are hidden
+			break;
+		}
+	}
+		
+	return numDie;
+}
+
+function RemoveDie() {
+	var numDie = GetNumberOfDie();
+	if (numDie <= 1) {
+		return;
+	}
+	
+	var dieID = "dice" + numDie; //get non-invisible die
+	
+	//make it hidden
+	ChangeVisibility(dieID, "hidden");
+}
+
+function ChangeVisibility(id, visOption) {
+	document.getElementById(id).style.visibility = visOption;
+}
+
+function AddDie() {
+	var numDie = GetNumberOfDie();
+	if (numDie >= 4) {
+		return;
+	}
+	
+	var dieID = "dice" + (numDie + 1); //get invisible die
+	
+	//make it visible
+	ChangeVisibility(dieID, "visible")
+}
