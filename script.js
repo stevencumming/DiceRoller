@@ -102,7 +102,7 @@ function GameScreen() {
 	var btn_hide = document.getElementById("btn_hide");
 
 	// Initialise Click Handlers and set what happens when you click them:
-	btn_spin.addEventListener("click", Spin);
+	btn_spin.addEventListener("click", RollDie);
 	btn_menu.addEventListener("click", MenuScreen);
 	btn_hide.addEventListener("click", RemoveDie);
 	btn_add.addEventListener("click", AddDie);
@@ -121,6 +121,16 @@ function GameScreen() {
 
 
 // Support Functions:
+function RollDie() {
+	var i;
+	var spinCount = 5; // number of times to spin
+	
+	for(i = 0; i < spinCount; i++) {
+		var delay = 5 * Math.abs(-10 * i * (i - 5)); // formula to calculate delay in ms
+		window.setTimeout(Spin, delay);
+	}
+}
+
 function Spin() {
 	UpdateImage("dice1", getRandomNumber(1, 6));
 	UpdateImage("dice2", getRandomNumber(1, 6));
