@@ -96,31 +96,43 @@ function GameScreen() {
 	// Grab buttons as objects
 	var btn_spin = document.getElementById("btn_spin");
 	var btn_menu = document.getElementById("btn_menu");
-
+    
 	// Initialise Click Handlers and set what happens when you click them:
 	btn_spin.addEventListener("click", Spin);
 	btn_menu.addEventListener("click", MenuScreen);
 
 }
 
+function DiceSide() {
+    var side = document.getElementById("selSide").value;
+    var dice = 0;
 
+    if (side == "6") {
+        dice = 6;
+    }
+    else if (side == "8") {
+        dice = 8;
+    }
+    else if (side == "12") {
+        dice = 12;
+    }
+    else if (side == "20") {
+        dice = 20;
+    }
 
+    return dice;
 
-
-
-
-
-
-
+}
 
 
 
 // Support Functions:
 function Spin() {
-	UpdateImage("dice1", getRandomNumber(1, 6));
-	UpdateImage("dice2", getRandomNumber(1, 6));
-	UpdateImage("dice3", getRandomNumber(1, 6));
-	UpdateImage("dice4", getRandomNumber(1, 6));
+    var num = DiceSide();
+	UpdateImage("dice1", getRandomNumber(1, num));
+	UpdateImage("dice2", getRandomNumber(1, num));
+	UpdateImage("dice3", getRandomNumber(1, num));
+	UpdateImage("dice4", getRandomNumber(1, num));
 }
 
 function getRandomNumber(min, max) {
@@ -148,7 +160,50 @@ function UpdateImage(dice_id, number) {
 			break;
 		case 6:
 			myBackgroundImage = "url('assets/d6.svg')";
-			break;
+            break;
+        case 7:
+            myBackgroundImage = "url('assets/d7.svg')";
+            break;
+        case 8:
+            myBackgroundImage = "url('assets/d8.svg')";
+            break;
+        case 9:
+            myBackgroundImage = "url('assets/d9.svg')";
+            break;
+        case 10:
+            myBackgroundImage = "url('assets/d10.svg')";
+            break;
+        case 11:
+            myBackgroundImage = "url('assets/d11.svg')";
+            break;
+        case 12:
+            myBackgroundImage = "url('assets/d12.svg')";
+            break;
+        case 13:
+            myBackgroundImage = "url('assets/d13.svg')";
+            break;
+        case 14:
+            myBackgroundImage = "url('assets/d14.svg')";
+            break;
+        case 15:
+            myBackgroundImage = "url('assets/d15.svg')";
+            break;
+        case 16:
+            myBackgroundImage = "url('assets/d16.svg')";
+            break;
+        case 17:
+            myBackgroundImage = "url('assets/d17.svg')";
+            break;
+        case 18:
+            myBackgroundImage = "url('assets/d18.svg')";
+            break;
+        case 19:
+            myBackgroundImage = "url('assets/d19.svg')";
+            break;
+        case 20:
+            myBackgroundImage = "url('assets/d20.svg')";
+            break;
+        
 	}
 	document.getElementById(dice_id).style.backgroundImage = myBackgroundImage;
 }
