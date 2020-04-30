@@ -35,6 +35,7 @@ function Startup() {
 	// Startup function:
 
 	// Associate DOM to global objects:
+	
 	main			= document.getElementsByTagName("main")[0];		// Main container
 
 	splashScreen 	= document.getElementById("splashScreen");		// Splash screen container
@@ -51,6 +52,17 @@ function SplashScreen() {
 	main.innerHTML = splashScreen.innerHTML;
 
 	// Do stuff...
+	
+	// To clear screen of the splashcreen
+	main.innerHTML = "";
+
+	// Creating the loading screen
+	var img = document.createElement('img')
+	img.src = 'assets/loading.gif'
+	img.height = 800;
+	img.width = 1280;
+	main.appendChild(img);
+
 
 	window.setTimeout(MenuScreen, 3000);					// Call next screen in 3 seconds (3000 milliseconds):
 }
