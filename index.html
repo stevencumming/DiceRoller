@@ -29,8 +29,8 @@
 		<!-- Menu container -->
 		
 		<!-- Example code.. -->
-		<button id="btn_option1">OPTION 1</button><br/>
-		<button id="btn_option2">OPTION 2</button><br/>
+		<button id="btn_option1">Dice Roller</button><br/>
+		<button id="btn_option2">Dungeons and Dragons</button><br/>
 		<button id="btn_option3">OPTION 3</button><br/>
 		<button id="btn_option4">OPTION 4</button>
 
@@ -46,15 +46,33 @@
 
 		<!-- We can use table layouts or something in CSS, table layouts are simpler imo -->
 		<table>
-			<tr><td>Dice 1: </td><td id="dice1"></td></tr>
-			<tr><td>Dice 2: </td><td id="dice2"></td></tr>
-			<tr><td>Dice 3: </td><td id="dice3"></td></tr>
-			<tr><td>Dice 4: </td><td id="dice4"></td></tr>
+			<tr id="dRow1"><td>Dice 1: </td><td id="dice1"></td></tr>
+			<tr id="dRow2"><td>Dice 2: </td><td id="dice2"></td></tr>
+			<tr id="dRow3"><td>Dice 3: </td><td id="dice3"></td></tr>
+			<tr id="dRow4"><td>Dice 4: </td><td id="dice4"></td></tr>
 
 			<tr><td colspan="2"><button id="btn_spin">SPIN</button></td></tr>
 			<tr><td colspan="2"><button id="btn_menu">Menu</button></td></tr>
-			<tr><td colspan="1"><button id="btn_add">Add Dice</button></td></tr>
-			<tr><td colspan="1"><button id="btn_hide">Remove Dice</button></td></tr>
+			<tr><td colspan="2"><button id="btn_add">Add Dice</button></td></tr>
+			<tr><td colspan="2"><button id="btn_hide">Remove Dice</button></td></tr>
+		</table>
+
+
+
+	</div>
+	
+	<!-- -----------------------------------------------CONTAINERS-DND------------------------------------------------- -->
+	<div id="dndScreen" class="hidden">
+		<!-- Dice Roller ('Game') main screen container -->
+		<h1>Dungeons and Dragons</h1>
+
+		<!-- We can use table layouts or something in CSS, table layouts are simpler imo -->
+		<table>
+			<tr><td>Success Calculations</td><td>Damage Calculations</td></tr>
+			<tr><td id="d20"></td><td id="d12"></td></tr>
+
+			<tr><td colspan="2"><button id="btn_roll">Roll</button></td></tr>
+			<tr><td colspan="2"><button id="btn_menu">Menu</button></td></tr>
 		</table>
 
 

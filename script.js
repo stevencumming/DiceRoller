@@ -40,6 +40,7 @@ function Startup() {
 	splashScreen 	= document.getElementById("splashScreen");		// Splash screen container
 	menuScreen 		= document.getElementById("menuScreen");		// Menu Screen container
 	gameScreen 		= document.getElementById("gameScreen");		// Game Screen container
+	dndScreen       = document.getElementById("dndScreen");
 	
 	SplashScreen();													// Move to SplashScreen()
 }
@@ -75,9 +76,7 @@ function MenuScreen() {
 		// Remember that you don't put parenthesis for the function call GameScreen NOT GameScreen()
 
 	// You can even put your own 'sub'-function inside too, or put it down in the support functions section
-	btn_option2.addEventListener("click", function() {
-		alert("Hello World!");
-	});
+	btn_option2.addEventListener("click", DndScreen);
 
 
 
@@ -92,7 +91,7 @@ function GameScreen() {
 
 	// Do Stuff...
 	//initialise die style propertiers
-	IniDie();
+	//IniDie();
 
 	// EXAMPLE CODE:
 	// Grab buttons as objects
@@ -108,7 +107,15 @@ function GameScreen() {
 	btn_add.addEventListener("click", AddDie);
 }
 
+function DndScreen() {
+	main.innerHTML = dndScreen.innerHTML;
 
+	var btn_roll = document.getElementById("btn_roll");
+	var btn_menu = document.getElementById("btn_menu");
+	
+	btn_roll.addEventListener("click", DndRoll);
+	btn_menu.addEventListener("click", MenuScreen);
+}
 
 
 
@@ -121,6 +128,11 @@ function GameScreen() {
 
 
 // Support Functions:
+function DndRoll() {
+	UpdateImage("d20", getRandomNumber(1, 20));
+	UpdateImage("d12", getRandomNumber(1, 12));
+}
+
 function RollDie() {
 	var i;
 	var spinCount = 5; // number of times to spin
@@ -168,28 +180,26 @@ function UpdateImage(dice_id, number) {
 	document.getElementById(dice_id).style.backgroundImage = myBackgroundImage;
 }
 
+/*
 function IniDie() {
-	document.getElementById("dice1").style.visibility = "visible";
-	document.getElementById("dice2").style.visibility = "visible";
-	document.getElementById("dice3").style.visibility = "visible";
-	document.getElementById("dice4").style.visibility = "visible";
-}
+	document.getElementById("dRow1").classList.toggle("hidden");
+	document.getElementById("dRow2").classList.toggle("hidden");
+	document.getElementById("dRow3").classList.toggle("hidden");
+	document.getElementById("dRow4").classList.toggle("hidden");
+} */
 
 function GetNumberOfDie() {
-	var numDie = 1; //dice 1 will never be invisible
+	var numDie = 4; //dice 1 will never be invisible
 	var i;
 	
 	for(i = 2; i < 5; i++) {
-		var dieID = "dice" + i; //will go from dice2 to dice4
+		var dieID = "dRow" + i; //will go from dRow2 to dRow4
 		
-		if (document.getElementById(dieID).style.visibility == "visible") {
-			numDie += 1;
-		}
-		else { //all next dice are hidden
-			break;
+		if (document.getElementById(dieID).classList.contains("hidden")) {
+			numDie -= 1;
 		}
 	}
-		
+			
 	return numDie;
 }
 
@@ -199,14 +209,19 @@ function RemoveDie() {
 		return;
 	}
 	
-	var dieID = "dice" + numDie; //get non-invisible die
+	var dieID = "dRow" + numDie; //get non-invisible die
 	
 	//make it hidden
-	ChangeVisibility(dieID, "hidden");
+	ChangeVisibility(dieID, "remove");
 }
 
-function ChangeVisibility(id, visOption) {
-	document.getElementById(id).style.visibility = visOption;
+function ChangeVisibility(id, action) {
+	if (action == "add") {
+		document.getElementById(id).classList.remove("hidden");
+	} 
+	else {
+		document.getElementById(id).classList.add("hidden");
+	}
 }
 
 function AddDie() {
@@ -215,8 +230,8 @@ function AddDie() {
 		return;
 	}
 	
-	var dieID = "dice" + (numDie + 1); //get invisible die
+	var dieID = "dRow" + (numDie + 1); //get invisible die
 	
 	//make it visible
-	ChangeVisibility(dieID, "visible")
+	ChangeVisibility(dieID, "add");
 }
