@@ -27,6 +27,8 @@ var menuScreen;
 var splashScreen;
 var gameScreen;
 
+// New variable for the sum of all the random numberss 
+var sum = 0;
 
 
 
@@ -111,6 +113,7 @@ function GameScreen() {
 
 	// Initialise Click Handlers and set what happens when you click them:
 	btn_spin.addEventListener("click", Spin);
+	btn_spin.addEventListener("click", SumOfDice);
 	btn_menu.addEventListener("click", MenuScreen);
 
 }
@@ -141,6 +144,9 @@ function getRandomNumber(min, max) {
 }
 
 function UpdateImage(dice_id, number) {
+	// To add the numbers that has been generated into the sum variable to get the total number
+	sum += number;
+
 	var myBackgroundImage = "";
 	switch(number) {
 		case 1:
@@ -165,3 +171,10 @@ function UpdateImage(dice_id, number) {
 	document.getElementById(dice_id).style.backgroundImage = myBackgroundImage;
 }
 
+// New function to get the sum of the dice's
+function SumOfDice()
+{
+	document.getElementById('sumOf').innerHTML = sum + '';  // Print sum of the numbers
+	sum = 0; // To reset the sum variable (So it doesnt take the cumulative sum)
+	console.log(sum);
+}
