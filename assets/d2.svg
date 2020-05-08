@@ -1,1 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path class="cls-1" d="M383 81.68A47.37 47.37 0 1 1 335.58 129 47.37 47.37 0 0 1 383 81.68zM81.67 383A47.37 47.37 0 1 0 129 335.59 47.37 47.37 0 0 0 81.67 383zM428 47.57H84A36.48 36.48 0 0 0 47.57 84v344A36.48 36.48 0 0 0 84 464.43h344A36.48 36.48 0 0 0 464.43 428V84A36.48 36.48 0 0 0 428 47.57m0-20A56.54 56.54 0 0 1 484.43 84v344A56.54 56.54 0 0 1 428 484.43H84A56.54 56.54 0 0 1 27.57 428V84A56.54 56.54 0 0 1 84 27.57z" fill="#000"/></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+	.st1{font-family:'LucidaConsole';}
+	.st2{font-size:129px;}
+</style>
+<path d="M0,0h512v512H0V0z"/>
+<g transform="translate(0,0)">
+	<path class="st0" d="M452.4,182.3l-70.5-97.1l-114.1-37v92.7l96.4,70L452.4,182.3z M248.8,140.9V48.3l-114.1,37l-70.5,97.1
+		l88.2,28.6L248.8,140.9z M200.8,334.5h115l35.5-109.4l-93-67.6l-93,67.6L200.8,334.5z M198.7,353.6l-54.4,75l114.1,37l114.1-37
+		l-54.4-75H198.7z M370,229.1l-36.8,113.3l54.5,75l70.5-97V200.5L370,229.1z M146.4,229.1l-88.2-28.6v119.9l70.5,97l54.5-75
+		L146.4,229.1z"/>
+</g>
+<text transform="matrix(1 0 0 1 215 308.9189)" class="st1 st2">2</text>
+</svg>
